@@ -1,0 +1,14 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "clay-workflow-qa",
+  "description": "Clay workflow QA skill.",
+  "owner": { "name": "Jeffrey Alteza", "url": "https://github.com/JeffreyTheKiln2X" },
+  "plugins": [
+    {
+      "name": "clay-workflow-qa",
+      "description": "QA an existing Clay workflow safely: safety gate, edge cases, cheapest tests first, verified runs, bug reports, owner sign-off.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "clay-workflow-qa",
+  "version": "1.0.0",
+  "description": "QA an existing Clay workflow safely: safety gate, edge cases, cheapest tests first, verified runs, bug reports, owner sign-off.",
+  "author": { "name": "Jeffrey Alteza", "url": "https://github.com/JeffreyTheKiln2X" }
+}

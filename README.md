@@ -24,17 +24,26 @@ You point it at a workflow (`wf_...`). It finds every way the workflow can write
 8. Bug reports, fixes in the draft only, and a publish check
 9. Owner report
 
-Full detail is in [`SKILL.md`](SKILL.md).
+Full detail is in [`SKILL.md`](skills/clay-workflow-qa/SKILL.md).
 
 ## Install
 
-Claude Code:
+**Claude Code, one step (version 2.1.275 or later):**
 
-```bash
-git clone https://github.com/JeffreyTheKiln2X/clay-workflow-qa ~/.claude/skills/clay-workflow-qa
+```
+/plugin install clay-workflow-qa --marketplace JeffreyTheKiln2X/clay-workflow-qa
 ```
 
-Codex: clone it into `~/.codex/skills/clay-workflow-qa` instead.
+On older versions, add the marketplace first, then install:
+
+```
+/plugin marketplace add JeffreyTheKiln2X/clay-workflow-qa
+/plugin install clay-workflow-qa@clay-workflow-qa
+```
+
+Get updates later with `/plugin marketplace update clay-workflow-qa`. The repo is private, so your GitHub account needs access to it.
+
+**Codex or any other agent:** copy the `skills/clay-workflow-qa` folder into that agent's skills folder (for Codex, `~/.codex/skills/`).
 
 Then ask your agent something like "QA workflow wf_xxx" or "test this Clay workflow before we publish".
 
@@ -42,13 +51,14 @@ Then ask your agent something like "QA workflow wf_xxx" or "test this Clay workf
 
 - The [Clay CLI](https://www.clay.com), logged in to the right workspace (`clay whoami`). If the workspace uses its own login folder, prefix commands with `CLAY_CONFIG_HOME=<folder>`.
 - Read access to the workflow, its runs and Audiences.
-- Python 3 for the helper scripts in `scripts/`.
+- Python 3 for the helper scripts.
 
 ## What's inside
 
 | Path | What it is |
 |---|---|
-| `SKILL.md` | The skill: hard rules and the 9 steps |
-| `references/` | CLI commands and gotchas, how web QA practices map to Clay, bug report and test log templates |
-| `scripts/` | Run audit, outcome coverage, Audiences before/after diff, published-vs-draft diff (read only, 0 credits) |
-| `evals/` | 3 offline test cases on a made-up workflow, built with Anthropic's skill-creator. They don't touch Clay. |
+| `.claude-plugin/` | Makes the repo installable as a Claude Code plugin |
+| `skills/clay-workflow-qa/SKILL.md` | The skill: hard rules and the 9 steps |
+| `skills/clay-workflow-qa/references/` | CLI commands and gotchas, how web QA practices map to Clay, bug report and test log templates |
+| `skills/clay-workflow-qa/scripts/` | Run audit, outcome coverage, Audiences before/after diff, published-vs-draft diff (read only, 0 credits) |
+| `skills/clay-workflow-qa/evals/` | 3 offline test cases on a made-up workflow, built with Anthropic's skill-creator. They don't touch Clay. |
