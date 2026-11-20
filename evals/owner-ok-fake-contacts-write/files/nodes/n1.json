@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n1",
+  "node": {
+    "id": "n1",
+    "name": "1 Load person",
+    "nodeType": "action",
+    "description": "Reads the Audiences person record for record_id, with its linked company (0 credits). Outputs person, company; found=false if no record.",
+    "code": null
+  }
+}

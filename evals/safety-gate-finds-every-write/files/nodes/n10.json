@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n10",
+  "node": {
+    "id": "n10",
+    "name": "10 Assign owner",
+    "nodeType": "call_workflow",
+    "description": "Calls wf_TESTOWNER02 (Owner Assign). Version: latest published (not pinned).",
+    "code": null
+  }
+}

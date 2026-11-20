@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n7",
+  "node": {
+    "id": "n7",
+    "name": "7 Update Audiences",
+    "nodeType": "audiences_update",
+    "description": "If audiences_write: writes the fit result on the person.",
+    "code": "# field mapping (field id: value)\nif SETTINGS[\"audiences_write\"]:\n    write({\"f_fit_status\": \"fit\", \"f_fit_score\": score, \"f_x81\": band})"
+  }
+}

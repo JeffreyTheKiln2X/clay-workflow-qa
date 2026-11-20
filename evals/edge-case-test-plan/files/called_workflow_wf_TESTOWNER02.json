@@ -1,0 +1,17 @@
+{
+  "_command": "clay workflows snapshots get wf_TESTOWNER02 wfs_OWN_PUB3",
+  "name": "Owner Assign",
+  "nodes": [
+    {
+      "id": "o1",
+      "name": "Round robin owner",
+      "nodeType": "code"
+    },
+    {
+      "id": "o2",
+      "name": "Write owner",
+      "nodeType": "audiences_update",
+      "description": "Writes owner_id (field f_owner_id) on the person. No switch."
+    }
+  ]
+}

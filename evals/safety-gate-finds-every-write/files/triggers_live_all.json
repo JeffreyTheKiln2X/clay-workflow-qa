@@ -1,0 +1,57 @@
+{
+  "_command": "clay workflows triggers list --scope live",
+  "scope": "live",
+  "data": [
+    {
+      "id": "trg_A1",
+      "triggerType": "manual",
+      "status": "live",
+      "reactionSettings": {
+        "workflowId": "wf_TESTFIXTURE01"
+      },
+      "settings": {
+        "triggerType": "manual"
+      },
+      "note": "runs published wfs_PUB0001"
+    },
+    {
+      "id": "trg_B2",
+      "triggerType": "audience_segment",
+      "status": "paused",
+      "reactionSettings": {
+        "workflowId": "wf_TESTENROLL03"
+      },
+      "settings": {
+        "triggerType": "audience_segment",
+        "segmentId": "seg_HOTFIT",
+        "entityType": "people"
+      }
+    },
+    {
+      "id": "trg_C3",
+      "triggerType": "audience_segment",
+      "status": "live",
+      "reactionSettings": {
+        "workflowId": "wf_TESTSYNC05"
+      },
+      "settings": {
+        "triggerType": "audience_segment",
+        "segmentId": "seg_PRIORITY",
+        "entityType": "people"
+      }
+    },
+    {
+      "id": "trg_D4",
+      "triggerType": "audience_segment",
+      "status": "live",
+      "reactionSettings": {
+        "workflowId": "wf_TESTSCORE06"
+      },
+      "settings": {
+        "triggerType": "audience_segment",
+        "segmentId": "ALL",
+        "entityType": "people"
+      }
+    }
+  ]
+}

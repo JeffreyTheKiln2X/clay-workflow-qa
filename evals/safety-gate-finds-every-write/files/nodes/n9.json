@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n9",
+  "node": {
+    "id": "n9",
+    "name": "9 Slack alert",
+    "nodeType": "code",
+    "description": "Posts the fit result to Slack (test channel while slack_test_mode is on).",
+    "code": "msg = f\"New fit inbound: {first_name} ({score})\"\nslack.post(channel=SETTINGS[\"slack_channel\"], text=msg)\nreturn {\"posted\": True}"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n6",
+  "node": {
+    "id": "n6",
+    "name": "6 Notify n8n",
+    "nodeType": "http",
+    "description": "POST https://hooks.example-n8n.io/webhook/inbound-fit with person and fit result; n8n creates a task for the SDR.",
+    "code": null
+  }
+}

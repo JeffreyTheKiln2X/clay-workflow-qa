@@ -1,0 +1,35 @@
+{
+  "_command": "clay workflows analysis runs --workflow wf_TESTFIXTURE01",
+  "data": [
+    {
+      "run": "wfr_H01",
+      "record_id": "rec_1001",
+      "end": "FIT_ROUTED",
+      "credits": 3
+    },
+    {
+      "run": "wfr_H02",
+      "record_id": "rec_1002",
+      "end": "NOT_FIT",
+      "credits": 0
+    },
+    {
+      "run": "wfr_H03",
+      "record_id": "rec_1003",
+      "end": "NOT_US",
+      "credits": 0
+    },
+    {
+      "run": "wfr_H04",
+      "record_id": "rec_1004",
+      "end": "FIT_ROUTED",
+      "credits": 3
+    },
+    {
+      "run": "wfr_H05",
+      "record_id": "rec_1005",
+      "end": "STALE_SIGNUP",
+      "credits": 0
+    }
+  ]
+}

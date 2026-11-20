@@ -1,0 +1,137 @@
+{
+  "_command": "clay workflows graph get wf_TESTFIXTURE01",
+  "nodes": [
+    {
+      "id": "n0",
+      "name": "0 Settings",
+      "nodeType": "code"
+    },
+    {
+      "id": "n1",
+      "name": "1 Load person",
+      "nodeType": "action"
+    },
+    {
+      "id": "n2",
+      "name": "2 Region guard",
+      "nodeType": "code"
+    },
+    {
+      "id": "n3",
+      "name": "3 Fit score",
+      "nodeType": "code"
+    },
+    {
+      "id": "n3b",
+      "name": "3b Normalize fields",
+      "nodeType": "code"
+    },
+    {
+      "id": "n4",
+      "name": "4 Signup recency",
+      "nodeType": "code"
+    },
+    {
+      "id": "n5",
+      "name": "5 Enrich company",
+      "nodeType": "action"
+    },
+    {
+      "id": "n6",
+      "name": "6 Notify n8n",
+      "nodeType": "http"
+    },
+    {
+      "id": "n7",
+      "name": "7 Update Audiences",
+      "nodeType": "audiences_update"
+    },
+    {
+      "id": "n8",
+      "name": "8 Salesforce upsert Lead",
+      "nodeType": "salesforce"
+    },
+    {
+      "id": "n9",
+      "name": "9 Slack alert",
+      "nodeType": "code"
+    },
+    {
+      "id": "n10",
+      "name": "10 Assign owner",
+      "nodeType": "call_workflow"
+    }
+  ],
+  "edges": [
+    {
+      "from": "n0",
+      "to": "n1"
+    },
+    {
+      "from": "n1",
+      "to": "n2"
+    },
+    {
+      "from": "n2",
+      "to": "n3"
+    },
+    {
+      "from": "n3",
+      "to": "n3b"
+    },
+    {
+      "from": "n3b",
+      "to": "n4"
+    },
+    {
+      "from": "n4",
+      "to": "n5"
+    },
+    {
+      "from": "n5",
+      "to": "n6"
+    },
+    {
+      "from": "n6",
+      "to": "n7"
+    },
+    {
+      "from": "n7",
+      "to": "n8"
+    },
+    {
+      "from": "n8",
+      "to": "n9"
+    },
+    {
+      "from": "n9",
+      "to": "n10"
+    }
+  ],
+  "branches": [
+    {
+      "after": "n1",
+      "rule": "found false -> end NO_RECORD"
+    },
+    {
+      "after": "n2",
+      "rule": "guard != ok -> end NOT_US"
+    },
+    {
+      "after": "n3",
+      "rule": "fit false -> end NOT_FIT"
+    },
+    {
+      "after": "n4",
+      "rule": "recent false -> end STALE_SIGNUP (or NO_SIGNUP_DATE)"
+    }
+  ],
+  "end_results": [
+    "NO_RECORD",
+    "NOT_US",
+    "NOT_FIT",
+    "STALE_SIGNUP",
+    "NO_SIGNUP_DATE",
+    "FIT_ROUTED"
+  ]
+}

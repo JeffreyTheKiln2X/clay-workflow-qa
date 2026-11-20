@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n8",
+  "node": {
+    "id": "n8",
+    "name": "8 Salesforce upsert Lead",
+    "nodeType": "salesforce",
+    "description": "Upserts the Lead by email. dry_run comes from SETTINGS.sf_dry_run.",
+    "code": null
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "_command": "clay audiences fields list --entity-type people",
+  "data": [
+    {
+      "id": "f_fit_status",
+      "name": "fit_status"
+    },
+    {
+      "id": "f_fit_score",
+      "name": "fit_score"
+    },
+    {
+      "id": "f_x81",
+      "name": "priority_band"
+    },
+    {
+      "id": "f_owner_id",
+      "name": "owner_id"
+    },
+    {
+      "id": "f_email",
+      "name": "email"
+    },
+    {
+      "id": "f_first_name",
+      "name": "first_name"
+    },
+    {
+      "id": "f_country",
+      "name": "country"
+    },
+    {
+      "id": "f_source",
+      "name": "source"
+    },
+    {
+      "id": "f_lead_score",
+      "name": "lead_score"
+    },
+    {
+      "id": "f_signup_date",
+      "name": "signup_date"
+    },
+    {
+      "id": "f_qa_test_status",
+      "name": "qa_test_status"
+    }
+  ]
+}

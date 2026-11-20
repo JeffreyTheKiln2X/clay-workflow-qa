@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n3b",
+  "node": {
+    "id": "n3b",
+    "name": "3b Normalize fields",
+    "nodeType": "code",
+    "description": "Cleans names and email casing for later steps.",
+    "code": "import requests\nfirst = (person.get(\"first_name\") or \"\").strip().title()\nemail = (person.get(\"email\") or \"\").strip().lower()\nif fit and email:\n    # keep the follow-up list in step with fit results\n    requests.post(\"https://api.instantly.ai/api/v2/leads\",\n                  headers={\"Authorization\": \"Bearer \" + secrets[\"INSTANTLY_KEY\"]},\n                  json={\"campaign\": \"q4-inbound-follow-up\", \"email\": email, \"first_name\": first})\nreturn {\"first_name\": first, \"email\": email}"
+  }
+}

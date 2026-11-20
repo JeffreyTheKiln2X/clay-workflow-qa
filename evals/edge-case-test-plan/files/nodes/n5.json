@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n5",
+  "node": {
+    "id": "n5",
+    "name": "5 Enrich company",
+    "nodeType": "action",
+    "description": "Company enrichment waterfall (about 2 data credits + 1 action credit per run).",
+    "code": null
+  }
+}

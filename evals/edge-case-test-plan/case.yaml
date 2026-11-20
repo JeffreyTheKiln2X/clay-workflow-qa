@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: edge-case-test-plan
+expected_outcome: |
+  test_plan.md covers every end result plus an edge case set: score 69/70/71, employees 49/50/51, signup days 30/31, blank and junk dates, blank settings, a blank country raised as an owner call, no record or bad id. Every test has a pass bar, single-step 0-credit tests come first, credits split into data and action, and every planned run keeps all outside writes off, including the hidden Instantly call in step 3b and step 9 ignoring test mode.
+context:
+  scaffold_script: place-files.sh

@@ -1,0 +1,41 @@
+{
+  "_command": "clay workflows get <id> (+ nodes) for each workflow named in triggers",
+  "data": [
+    {
+      "id": "wf_TESTENROLL03",
+      "name": "Hot Fit -> Sequence",
+      "nodes": [
+        {
+          "id": "e1",
+          "name": "Enroll in campaign",
+          "nodeType": "campaign_enroll",
+          "description": "Adds the person to Instantly campaign 'Q4 Inbound Follow-up' (first email within 1 hour)."
+        }
+      ]
+    },
+    {
+      "id": "wf_TESTSYNC05",
+      "name": "Priority Lead Sync",
+      "nodes": [
+        {
+          "id": "s1",
+          "name": "Upsert Lead",
+          "nodeType": "salesforce",
+          "description": "Upserts the person as a Salesforce Lead with Lead Source = Priority Inbound. No dry run setting."
+        }
+      ]
+    },
+    {
+      "id": "wf_TESTSCORE06",
+      "name": "Pipeline Pulse",
+      "nodes": [
+        {
+          "id": "p1",
+          "name": "Post change",
+          "nodeType": "slack",
+          "description": "Posts every changed people record to #exec-pipeline."
+        }
+      ]
+    }
+  ]
+}

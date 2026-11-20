@@ -1,0 +1,43 @@
+{
+  "_command": "clay audiences list --entity-type people; clay audiences get <id>",
+  "data": [
+    {
+      "id": "seg_HOTFIT",
+      "name": "Hot fit inbound",
+      "filter": {
+        "and": [
+          {
+            "field": "f_fit_status",
+            "op": "eq",
+            "value": "fit"
+          },
+          {
+            "field": "f_email",
+            "op": "is_not_empty"
+          }
+        ]
+      }
+    },
+    {
+      "id": "seg_PRIORITY",
+      "name": "Priority accounts",
+      "filter": {
+        "field": "f_x81",
+        "op": "in",
+        "value": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "id": "seg_ALLINBOUND",
+      "name": "All inbound",
+      "filter": {
+        "field": "f_source",
+        "op": "eq",
+        "value": "inbound"
+      }
+    }
+  ]
+}

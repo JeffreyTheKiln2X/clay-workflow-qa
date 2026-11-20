@@ -1,0 +1,8 @@
+{
+  "_command": "clay workflows get wf_TESTFIXTURE01",
+  "id": "wf_TESTFIXTURE01",
+  "name": "Inbound Fit Router",
+  "description": "Scores inbound people for fit, writes fit status to Audiences, alerts sales.",
+  "publishedSnapshotId": "wfs_PUB0001",
+  "draftSnapshotId": "wfs_DRAFT0007"
+}

@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n0",
+  "node": {
+    "id": "n0",
+    "name": "0 Settings",
+    "nodeType": "code",
+    "description": "All switches for the play. Test mode keeps alerts in the test channel.",
+    "code": "SETTINGS = {\n    \"audiences_write\": True,      # step 7 writes fit_status, fit_score, priority_band\n    \"sf_dry_run\": True,           # step 8: True = no Salesforce write\n    \"slack_test_mode\": True,      # test mode: alerts go to #sales-alerts-test\n    \"slack_channel\": \"#sales-alerts\",\n    \"slack_test_channel\": \"#sales-alerts-test\",\n    \"min_employees\": 50,\n    \"fit_score_min\": 70,\n    \"max_days_since_signup\": 30,\n}\nreturn SETTINGS"
+  }
+}

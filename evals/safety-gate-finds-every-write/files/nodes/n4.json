@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n4",
+  "node": {
+    "id": "n4",
+    "name": "4 Signup recency",
+    "nodeType": "code",
+    "description": "Recent signups only.",
+    "code": "from datetime import date\nd = person.get(\"signup_date\")\nif not d:\n    return {\"recent\": False, \"reason\": \"NO_SIGNUP_DATE\"}\ndays = (date.today() - date.fromisoformat(d)).days\nreturn {\"recent\": days <= SETTINGS[\"max_days_since_signup\"], \"days\": days}"
+  }
+}

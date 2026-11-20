@@ -1,0 +1,10 @@
+{
+  "_command": "clay workflows nodes get wf_TESTFIXTURE01 n3",
+  "node": {
+    "id": "n3",
+    "name": "3 Fit score",
+    "nodeType": "code",
+    "description": "Fit when score and size clear the settings.",
+    "code": "score = int(person.get(\"lead_score\") or 0)\nemp = int(company.get(\"employees\") or 0)\nfit = score >= SETTINGS[\"fit_score_min\"] and emp >= SETTINGS[\"min_employees\"]\nband = \"A\" if score >= 85 else (\"B\" if fit else \"C\")\nreturn {\"fit\": fit, \"score\": score, \"band\": band}"
+  }
+}
