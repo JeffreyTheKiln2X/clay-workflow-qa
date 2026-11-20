@@ -1,6 +1,6 @@
 ---
 name: clay-workflow-qa
-description: "QA an existing Clay workflow the way a senior web QA tests an app: safety gate, map, plan with pass bars, cheapest tests first, verified runs, bug reports, sign-off report. Use when someone asks to QA, test, audit or check a Clay workflow (a play, a module, any wf_ id), or to find bugs in one. For building a new workflow, use the workflow build skill instead."
+description: "QA an existing Clay workflow the way a senior web QA tests an app: safety gate, map, plan with pass bars, cheapest tests first, verified runs, bug reports, sign-off report. Use when someone asks to QA, test, audit or check a Clay workflow (a play, a module, any wf_ id), or to find bugs in one."
 ---
 
 # Clay workflow QA
