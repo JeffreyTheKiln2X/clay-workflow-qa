@@ -4,6 +4,10 @@ An agent skill that QAs an existing Clay workflow the way a senior web QA tests 
 
 You point it at a workflow (`wf_...`). It finds every way the workflow can write or send, plans tests with pass bars written up front, runs the cheapest tests first on the draft, checks each run changed nothing it shouldn't, and ends with bug reports and a sign-off summary for the owner.
 
+[![How clay-workflow-qa works: a 30 second animation](docs/how-it-works.gif)](docs/how-it-works.mp4)
+
+*30 second walkthrough. Click it to play the MP4 with sound.*
+
 ## What it protects
 
 - **The client's CRM and people.** Salesforce/CRM writes, Slack, email and campaign enrollment stay off on every test run. A "test channel" still counts as sending.
@@ -58,6 +62,7 @@ Then ask your agent something like "QA workflow wf_xxx" or "test this Clay workf
 | Path | What it is |
 |---|---|
 | `.claude-plugin/` | Makes the repo installable as a Claude Code plugin |
+| `docs/` | The 30 second walkthrough: `how-it-works.mp4` (with sound) and its GIF preview |
 | `skills/clay-workflow-qa/SKILL.md` | The skill: hard rules and the 9 steps |
 | `skills/clay-workflow-qa/references/` | CLI commands and gotchas, how web QA practices map to Clay, bug report and test log templates |
 | `skills/clay-workflow-qa/scripts/` | Run audit, outcome coverage, Audiences before/after diff, published-vs-draft diff (read only, 0 credits) |
