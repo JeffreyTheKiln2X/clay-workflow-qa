@@ -18,15 +18,15 @@ You point it at a workflow (`wf_...`). It finds every way the workflow can write
 
 ## The steps
 
-1. Safety gate: every write path and how it is made safe
-2. Recon: steps, branches, triggers, end results
-3. Static review (0 credits)
-4. History audit of past runs (0 credits)
-5. Test plan: an outcome matrix plus edge cases (thresholds, blanks, junk inputs, lookups, fallbacks, re-runs)
-6. Execute, cheapest first: single-step tests, smoke test, one run per outcome, hard paths, regression
-7. Verify every run
-8. Bug reports, fixes in the draft only, and a publish check
-9. Owner report
+0. Spec: the doc, rule by rule, with the result it expects (no doc: owner calls)
+a. Static check, safety gate (every write path and what sits downstream) and a history audit of past runs (0 credits)
+- Plan checkpoint: an outcome matrix plus edge cases (thresholds, blanks, junk inputs, lookups, fallbacks, re-runs), one yes
+b. Step tests with made-up inputs (0 credits for code steps)
+c. Dry run smoke on real records, one per outcome class, on the draft or a test copy, with five checks per run
+d. Trigger test: a test record starts the workflow by its real trigger
+e. Canary: one real record, real writes, from a runbook
+f. Review, bug reports, fixes in the draft only, and a publish check
+- Close: report, a plain-words results page, cleanup
 
 Full detail is in [`SKILL.md`](skills/clay-workflow-qa/SKILL.md).
 
@@ -63,7 +63,7 @@ Then ask your agent something like "QA workflow wf_xxx" or "test this Clay workf
 |---|---|
 | `.claude-plugin/` | Makes the repo installable as a Claude Code plugin |
 | `docs/` | The 30 second walkthrough: `how-it-works.mp4` (with sound) and its GIF preview |
-| `skills/clay-workflow-qa/SKILL.md` | The skill: hard rules and the 9 steps |
-| `skills/clay-workflow-qa/references/` | CLI commands and gotchas, how web QA practices map to Clay, bug report and test log templates |
-| `skills/clay-workflow-qa/scripts/` | Run audit, outcome coverage, Audiences before/after diff, published-vs-draft diff (read only, 0 credits) |
+| `skills/clay-workflow-qa/SKILL.md` | The skill: hard rules and the steps (spec, safety gate, plan, tests, smoke, trigger test, canary, review, report) |
+| `skills/clay-workflow-qa/references/` | One file per step (spec, safety gate, history audit, edge cases, test copy, trigger test, review, publish check, report, results page), CLI commands and gotchas, how web QA practices map to Clay, the bug report template |
+| `skills/clay-workflow-qa/scripts/` | Read only (0 credits): run audit, outcome coverage, Audiences before/after diff, published-vs-draft diff, static check. Run tests: smoke, test copy, trigger test. Results page renderer and its tests |
 | `skills/clay-workflow-qa/evals/` | 3 offline test cases on a made-up workflow, built with Anthropic's skill-creator. They don't touch Clay. |
