@@ -2,18 +2,19 @@
 
 An agent skill that QAs an existing Clay workflow the way a senior web QA tests an app. It works with Claude Code, Codex, or any agent that reads `SKILL.md` skills.
 
-You point it at a workflow (`wf_...`). It finds every way the workflow can write or send, plans tests with pass bars written up front, runs the cheapest tests first on the draft, checks each run changed nothing it shouldn't, and ends with bug reports and a sign-off summary for the owner.
+You point it at a workflow (`wf_...`) or a play. It checks the workflow does what its doc says and nothing it shouldn't: it finds every way the workflow can write or send, plans tests with pass bars written up front, runs the cheapest tests first on the draft or on a test copy of a live workflow, checks each run changed nothing it shouldn't, and ends with bug reports, a sign-off summary for the owner, and a plain-words results page.
 
-[![How clay-workflow-qa works: a 30 second animation](docs/how-it-works.gif)](docs/how-it-works.mp4)
+[![How clay-workflow-qa works: a 36 second animation](docs/how-it-works.gif)](docs/how-it-works.mp4)
 
-*30 second walkthrough. Click it to play the MP4 with sound.*
+*36 second walkthrough. Click it to play the MP4 with sound.*
 
 ## What it protects
 
 - **The client's CRM and people.** Salesforce/CRM writes, Slack, email and campaign enrollment stay off on every test run. A "test channel" still counts as sending.
 - **Writes need an explicit yes.** "Test it" is not approval to write to Audiences.
 - **Downstream workflows.** It maps which segments read each field the workflow writes, and which live triggers watch those segments (including `ALL`), so a test write can't set off another workflow that syncs to Salesforce or enrolls in a campaign.
-- **Production.** Tests run on the draft. Publishing stays the owner's call.
+- **Production.** Tests run on the draft, or on a test copy when the workflow is live. Publishing stays the owner's call.
+- **The doc is the spec.** Expected results come from the workflow's doc, never from its code. A rule the doc doesn't settle is an owner call, not a bug.
 - **Credits.** Every test is priced before it runs, with a stop line. Free single-step tests come first.
 
 ## The steps
@@ -55,14 +56,16 @@ Then ask your agent something like "QA workflow wf_xxx" or "test this Clay workf
 
 - The [Clay CLI](https://www.clay.com), logged in to the right workspace (`clay whoami`). If the workspace uses its own login folder, prefix commands with `CLAY_CONFIG_HOME=<folder>`.
 - Read access to the workflow, its runs and Audiences.
-- Python 3 for the helper scripts.
+- Python 3 and PyYAML for the helper scripts.
+- For the scripts that take a target name: a targets file (`--targets <file>`, env `QA_TARGETS`, or `./qa/targets.yaml`) listing each play's doc, workflows, segments and triggers. The schema is in the `scripts/tp.py` docstring. A bare `wf_` id needs no targets file.
+- Optional: the `sf` CLI and a sequencing-tool reader, for the Salesforce and sequence read backs in the smoke test.
 
 ## What's inside
 
 | Path | What it is |
 |---|---|
 | `.claude-plugin/` | Makes the repo installable as a Claude Code plugin |
-| `docs/` | The 30 second walkthrough: `how-it-works.mp4` (with sound) and its GIF preview |
+| `docs/` | The 36 second walkthrough: `how-it-works.mp4` (with sound) and its GIF preview |
 | `skills/clay-workflow-qa/SKILL.md` | The skill: hard rules and the steps (spec, safety gate, plan, tests, smoke, trigger test, canary, review, report) |
 | `skills/clay-workflow-qa/references/` | One file per step (spec, safety gate, history audit, edge cases, test copy, trigger test, review, publish check, report, results page), CLI commands and gotchas, how web QA practices map to Clay, the bug report template |
 | `skills/clay-workflow-qa/scripts/` | Read only (0 credits): run audit, outcome coverage, Audiences before/after diff, published-vs-draft diff, static check. Run tests: smoke, test copy, trigger test. Results page renderer and its tests |
